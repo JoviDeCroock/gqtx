@@ -145,7 +145,8 @@ export type Factory<Ctx, TExtensionsMap extends ExtensionsMap> = {
     name: string;
     description?: string | undefined;
     types: ObjectType<Ctx, any>[];
-    resolveType: (src: Src) => ObjectType<any, any>;
+    // TODO: check if we can get types here as literal strings
+    resolveType: (src: Src) => string;
   }): Union<Ctx, Src | null>;
   interfaceType<Src>({
     name,
@@ -389,7 +390,8 @@ export function createTypesFactory<
       name: string;
       description?: string;
       types: Array<ObjectType<Ctx, any>>;
-      resolveType: (src: Src) => ObjectType<any, any>;
+      // TODO: check if we can get types here as literal strings
+      resolveType: (src: Src) => string;
     }): Union<Ctx, Src | null> {
       return {
         kind: 'Union',

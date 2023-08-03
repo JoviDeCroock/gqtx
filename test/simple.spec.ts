@@ -325,9 +325,9 @@ test('can build a schema', () => {
     resolveType: (src) => {
       switch (src.type) {
         case 'Droid':
-          return droidType;
+          return 'Droid';
         case 'Human':
-          return humanType;
+          return 'Human';
       }
     },
     types: [humanType, droidType],
